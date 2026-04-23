@@ -1,0 +1,56 @@
+export const scoutReportSchema = {
+  name: 'scoutReport',
+  title: 'Scout Raporu',
+  type: 'document',
+  fields: [
+    { name: 'playerName', title: 'Oyuncu Adı',    type: 'string', validation: R => R.required() },
+    { name: 'age',        title: 'Yaş',            type: 'number' },
+    { name: 'nationality',title: 'Uyruk',          type: 'string' },
+    { name: 'position',   title: 'Mevki',          type: 'string' },
+    { name: 'team',       title: 'Kulüp',          type: 'string' },
+    { name: 'league',     title: 'Lig',            type: 'string' },
+    { name: 'season',     title: 'Sezon',          type: 'string' },
+    { name: 'overallRating', title: 'Genel Puan',  type: 'number' },
+    { name: 'potential',  title: 'Potansiyel',     type: 'number' },
+    { name: 'summary',    title: 'Özet',           type: 'text', rows: 4 },
+    {
+      name: 'attributes',
+      title: 'Özellikler',
+      type: 'object',
+      fields: [
+        { name: 'teknik',     title: 'Teknik',    type: 'number' },
+        { name: 'vizyon',     title: 'Vizyon',    type: 'number' },
+        { name: 'hiz',        title: 'Hız',       type: 'number' },
+        { name: 'fizik',      title: 'Fizik',     type: 'number' },
+        { name: 'savunma',    title: 'Savunma',   type: 'number' },
+        { name: 'mentaliite', title: 'Mentalite', type: 'number' },
+      ],
+    },
+    {
+      name: 'strengths',
+      title: 'Güçlü Yanlar',
+      type: 'array',
+      of: [{ type: 'string' }],
+      options: { layout: 'tags' },
+    },
+    {
+      name: 'weaknesses',
+      title: 'Gelişim Alanları',
+      type: 'array',
+      of: [{ type: 'string' }],
+      options: { layout: 'tags' },
+    },
+    {
+      name: 'verdict',
+      title: 'Karar',
+      type: 'string',
+      options: {
+        list: ['Takip Et','İzlemeye Devam','Potansiyel Var','Pas Geç'],
+      },
+    },
+    { name: 'reportDate', title: 'Rapor Tarihi', type: 'date' },
+  ],
+  preview: {
+    select: { title: 'playerName', subtitle: 'team' },
+  },
+}

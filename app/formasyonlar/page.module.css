@@ -1,0 +1,242 @@
+.header {
+  padding: 64px 0 48px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.headerTitle {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+.headerTitle span { color: var(--green-primary); }
+.headerDesc { font-size: 16px; color: var(--text-secondary); max-width: 500px; }
+
+/* Layout */
+.layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 32px;
+  padding: 48px 0 100px;
+  align-items: start;
+}
+
+/* Formation list */
+.formationList {
+  position: sticky;
+  top: 88px;
+}
+
+.listLabel {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 0 0 12px;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 8px;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+  margin-bottom: 4px;
+}
+
+.listItem:hover {
+  background: var(--bg-raised);
+  border-color: var(--border-subtle);
+}
+
+.listItem.selected {
+  background: var(--green-glow);
+  border-color: var(--green-border);
+}
+
+.listName {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.listItem.selected .listName {
+  color: var(--green-primary);
+}
+
+.listCategory {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Detail panel */
+.detail {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  animation: fadeIn 0.3s ease;
+}
+
+.detailHeader {
+  padding: 32px 36px;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.detailName {
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.detailDesc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 460px;
+  margin-top: 12px;
+}
+
+.detailBody {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+/* Pitch */
+.pitchPanel {
+  padding: 32px;
+  border-right: 1px solid var(--border-subtle);
+}
+
+.pitchLabel {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.pitch {
+  width: 100%;
+  aspect-ratio: 2/3;
+  background: linear-gradient(180deg, #1a3a1a 0%, #1e4020 50%, #1a3a1a 100%);
+  border-radius: var(--radius-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.playerDot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.playerDotInner {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  background: var(--green-primary);
+  color: var(--bg-base);
+  border: 2px solid rgba(255,255,255,0.2);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  transition: transform 0.2s;
+  cursor: default;
+}
+
+.playerDotInner:hover {
+  transform: scale(1.15);
+  box-shadow: 0 4px 16px rgba(184, 245, 60, 0.4);
+}
+
+/* Info panel */
+.infoPanel {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.infoSection h4 {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.strengthsList, .weaknessList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.strengthsList li, .weaknessList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.strengthsList li::before {
+  content: '✓';
+  color: var(--green-primary);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.weaknessList li::before {
+  content: '✗';
+  color: var(--red);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.teamList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+@media (max-width: 1024px) {
+  .layout { grid-template-columns: 1fr; }
+  .formationList { position: static; display: flex; gap: 8px; flex-wrap: wrap; }
+  .listItem { padding: 10px 16px; }
+  .detailBody { grid-template-columns: 1fr; }
+  .pitchPanel { border-right: none; border-bottom: 1px solid var(--border-subtle); }
+  .pitch { max-width: 320px; margin: 0 auto; }
+}
